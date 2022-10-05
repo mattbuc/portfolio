@@ -1,0 +1,177 @@
+body {
+    background-image: url(./img/fondskyrim.png);
+    background-size: cover;
+    overflow: hidden;
+}
+
+.boite {
+    top: 50px;
+    width: 1280px;
+    height: 853px;
+    margin: auto;
+    position: relative;
+}
+
+.texte {
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    background-color: rgb(12, 12, 12, 80%);
+    border-radius: 20px;
+    width: 20%;
+    padding: 1%;
+    margin: auto;
+}
+
+#monbouton{
+    position: absolute;
+    cursor: grab;
+    left: 0;
+    right: 0;
+    top: 20%;
+    width: 20%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    z-index: 1;
+}
+
+#skooma{
+    position: absolute;
+    cursor: grab;
+    right: 15%;
+    top: 55%;
+    width: 4%;
+    z-index: 4;
+}
+
+#skooma{
+    position: absolute;
+    cursor: grab;
+    right: 15%;
+    top: 55%;
+    width: 4%;
+    z-index: 4;
+}
+
+#lingot{
+    position: absolute;
+    cursor: grab;
+    right: 27%;
+    top: 55%;
+    width: 8%;
+    z-index: 4;
+}
+
+#epee{
+    transform: rotate(236deg);
+    position: absolute;
+    cursor: grab;
+    right: 45%;
+    top: 50%;
+    width: 5%;
+    z-index: 4;
+}
+
+#casque{
+    transform: scaleX(-1);
+    filter: brightness(0.3);
+    position: absolute;
+    cursor: grab;
+    left: 12%;
+    top: 38%;
+    width: 6%;
+    z-index: 4;
+}
+
+#macible{
+    position: absolute;
+    z-index: 0;
+}
+
+
+#porte1 {
+    top: 32%;
+    right: 10%;
+    width: 50px;
+    height: 120px;
+    position: absolute;
+    z-index: 4;
+    cursor: grab;
+}
+
+#porte2 {
+    top: 24%;
+    left: 19%;
+    width: 70px;
+    height: 80px;
+    position: absolute;
+    z-index: 4;
+    cursor: grab;
+}
+
+#porte3 {
+    top: 10%;
+    right: 1%;
+    width: 100px;
+    height: 200px;
+    position: absolute;
+    z-index: 4;
+    cursor: grab;
+}
+
+#porte4 {
+    bottom: 20%;
+    left: 20%;
+    width: 200px;
+    height: 100px;
+    position: absolute;
+    z-index: 4;
+    cursor: grab;
+}
+
+#porte5 {
+    bottom: 35%;
+    right: 0%;
+    width: 80px;
+    height: 100px;
+    position: absolute;
+    z-index: 4;
+    cursor: grab;
+}
+
+#porte6 {
+    bottom: 20%;
+    left: 20%;
+    width: 200px;
+    height: 100px;
+    position: absolute;
+    z-index: 4;
+    cursor: grab;
+}
+
+.fluid {
+    width: 100%;
+    overflow: hidden;
+    height: 80%;
+}
+
+.disparaitre {
+    display: none;
+}
+
+
+.disappear {
+    filter: blur(4px);  
+    display: content;
+}
+
+.devant {
+    z-index: 3;
+    opacity: 1;
+}
+
+.derriere {
+    z-index: -1;
+    opacity: 0;
+}

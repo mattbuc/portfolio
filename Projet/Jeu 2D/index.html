@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/style.css" />
+    <script src="js/game.js" defer></script>
+    <script src="js/collisionDetection.js"></script>
+    <title>Canvas Game loop</title>
+  </head>
+
+  <body>
+
+    <main>
+      <section>
+        <h2>Score</h2>
+        <div id="js-chrono"></div>
+      </section>
+      <section>
+        <canvas id="js-canvas" width="800" height="600" class="canvas"></canvas>
+        <img src="./img/GameOver.jpg" alt="Fin de partie" width="800" height="600" class="fin" id="defaite">
+      </section>
+      <section>
+        <div class="controls">
+          <input type="button" onclick="window.location.reload(false)" value="Recommencer">
+        </div>
+      </section>
+    </main>
+
+  </body>
+</html>

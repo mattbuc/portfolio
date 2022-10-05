@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/style.css">
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+    <title>Point and click</title>
+
+</head>
+<body>
+    <div class="texte">
+        <h2>Point and click</h2>
+        <p>Préparer vous pour partir à l'aventure.</p>
+    </div>
+    <div class="boite">
+        <img id="monbouton" src="./img/bouton-skyrim.png" alt="">
+        <img id="macible" class="disappear fluid" src="./img/fond2.png" alt="">
+        <img id="fond1" class="derriere fluid" src="./img/fond3.png" alt="">
+        <div id="porte1" class="disparaitre"></div>
+        <div id="porte2" class="disparaitre"></div>
+        <div id="porte3" class="disparaitre"></div>
+        <div id="porte4" class="disparaitre"></div>
+        <div id="porte5" class="disparaitre"></div>
+        <div id="porte6" class="disparaitre"></div>
+        <img id="skooma" class="disparaitre" src="./img/Skooma.png">
+        <img id="lingot" class="disparaitre" src="./img/lingot.png" alt="">
+        <img id="epee" class="disparaitre" src="./img/épée.png"  alt="">
+        <img id="casque" class="disparaitre" src="./img/casque.png" alt="">
+        <audio id="potion" preload> <source src="./son/potion.mp3" type="audio/mpeg"> </audio>
+        <audio id="casque_audio" preload> <source src="./son/casque.mp3" type="audio/mpeg"> </audio>
+        <audio id="sword" preload> <source src="./son/sword.mp3" type="audio/mpeg"> </audio>
+        <audio id="complete" preload> <source src="./son/complete.mp3" type="audio/mpeg"> </audio>
+    </div>
+    <script>
+
+        var inventaire = 0;
+        var skooma = 0;
+        var lingot = 0;
+        var epee = 0;
+        var casque = 0;
+        console.log("niveau de l'inventaire : ",inventaire);
+
+        $("#monbouton").click(function(){
+            $("#macible").hide();
+            $("#monbouton").toggle();
+            $("#fond1").toggleClass("devant");
+            $("#fond1").toggleClass("derriere");
+            $("#porte1").toggleClass("disparaitre");
+            $("#porte2").toggleClass("disparaitre");
+            $("#porte5").toggleClass("disparaitre");
+            console.log("work");
+            } )
+
+        $("#porte1").click(function(){
+            $("#fond1").attr("src", "./img/forgeron.png");
+            $("#porte3").toggleClass("disparaitre");
+            $("#porte1").toggleClass("disparaitre");
+            $("#porte2").toggleClass("disparaitre");
+            $("#porte5").toggleClass("disparaitre");
+            if(casque === 0){
+               $("#casque").toggleClass("disparaitre"); 
+            }
+        } );
+
+        $("#porte3").click(function(){
+            $("#fond1").attr("src", "./img/fond3.png")
+            $("#porte3").toggleClass("disparaitre");
+            $("#porte1").toggleClass("disparaitre");
+            $("#porte2").toggleClass("disparaitre");
+            $("#porte5").toggleClass("disparaitre");
+            if(casque === 0){
+               $("#casque").toggleClass("disparaitre"); 
+            }
+        });
+
+
+        $("#porte2").click(function(){
+            if(skooma === 0){
+                $("#skooma").toggleClass("disparaitre");
+            }
+            $("#fond1").attr("src", "./img/maison.jpg");
+            $("#porte1").toggleClass("disparaitre");
+            $("#porte2").toggleClass("disparaitre");
+            $("#porte4").toggleClass("disparaitre");
+            $("#porte5").toggleClass("disparaitre");
+            
+        });
+
+        $("#porte4").click(function(){
+            $("#fond1").attr("src", "./img/fond3.png")
+            $("#porte1").toggleClass("disparaitre");
+            $("#porte2").toggleClass("disparaitre");
+            $("#porte4").toggleClass("disparaitre");
+            $("#porte5").toggleClass("disparaitre"); 
+            if(skooma === 0){
+               $("#skooma").toggleClass("disparaitre"); 
+            }
+            
+        });
+
+        $("#porte5").click(function(){
+            $("#fond1").attr("src", "./img/forge.png")
+            $("#porte1").toggleClass("disparaitre");
+            $("#porte2").toggleClass("disparaitre");
+            $("#porte5").toggleClass("disparaitre");
+            $("#porte6").toggleClass("disparaitre");
+            if(lingot === 0){
+               $("#lingot").toggleClass("disparaitre"); 
+            }
+            if(epee === 1){
+                $("#epee").toggleClass("disparaitre"); 
+            }
+        });
+
+        $("#porte6").click(function(){
+            $("#fond1").attr("src", "./img/fond3.png");
+            $("#porte1").toggleClass("disparaitre");
+            $("#porte2").toggleClass("disparaitre");
+            $("#porte5").toggleClass("disparaitre");
+            $("#porte6").toggleClass("disparaitre");
+            if(lingot === 0){
+               $("#lingot").toggleClass("disparaitre"); 
+            }
+            if(epee === 1){
+                $("#epee").toggleClass("disparaitre"); 
+            }
+        })
+
+        $("#skooma").click(function(){
+            $("#skooma").toggleClass("disparaitre");
+            inventaire = inventaire + 1;
+            skooma = skooma + 1;
+            console.log("niveau de l'inventaire : ",inventaire);
+            document.getElementById("potion").play();
+            if (inventaire === 3){
+                $("#fond1").attr("src", "./img/fin.png");
+                $("#porte1").hide("disparaitre");
+                $("#porte2").hide("disparaitre");
+                $("#porte3").hide("disparaitre");
+                $("#porte4").hide("disparaitre");
+                $("#porte5").hide("disparaitre");
+                $("#porte6").hide("disparaitre");
+                setInterval(document.getElementById("complete").play(),2000);
+            }
+        });
+
+        $("#epee").click(function(){
+            $("#epee").toggleClass("disparaitre");
+            inventaire = inventaire + 1;
+            epee = epee + 1;
+            console.log("niveau de l'inventaire : ",inventaire);
+            document.getElementById("sword").play();
+
+            if (inventaire === 3){
+                $("#fond1").attr("src", "./img/fin.png");
+                $("#porte1").hide("disparaitre");
+                $("#porte2").hide("disparaitre");
+                $("#porte3").hide("disparaitre");
+                $("#porte4").hide("disparaitre");
+                $("#porte5").hide("disparaitre");
+                $("#porte6").hide("disparaitre");
+                setInterval(document.getElementById("complete").play(),2000);
+            }
+        });
+
+        $("#casque").click(function(){
+            $("#casque").toggleClass("disparaitre");
+            inventaire = inventaire + 1;
+            casque = casque + 1;
+            console.log("niveau de l'inventaire : ",inventaire);
+            document.getElementById("casque_audio").play();
+            if (inventaire === 3){
+                $("#fond1").attr("src", "./img/fin.png");
+                $("#porte1").hide("disparaitre");
+                $("#porte2").hide("disparaitre");
+                $("#porte3").hide("disparaitre");
+                $("#porte4").hide("disparaitre");
+                $("#porte5").hide("disparaitre");
+                $("#porte6").hide("disparaitre");
+                setInterval(document.getElementById("complete").play(),2000);
+            }
+        });
+
+        $( function() {
+            $("#lingot").draggable( { stop: function(e, ui ){ if(ui.position.top>280 && ui.position.top<310 && ui.position.left>980 && ui.position.left<1000 ) {
+            $("#lingot").toggleClass("disparaitre");
+            $("#epee").toggleClass("disparaitre");
+            lingot = lingot + 1;
+            epee = epee + 1;
+                    } 
+                } 
+            } );   
+          } );
+
+            
+
+    </script>
+</body>
+</html>
